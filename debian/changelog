@@ -1,0 +1,47 @@
+xmlrpc-epi (0.54-3) unstable; urgency=low
+
+  * Fix a debian/copyright omission for src/queue.*
+
+ -- Robin Cornelius <robin.cornelius@gmail.com>  Wed, 30 Apr 2008 21:30:52 +0100
+
+xmlrpc-epi (0.54-2) unstable; urgency=low
+
+  * FTBFS - Fix build deps, libexpat1-dev was missing
+
+ -- Robin Cornelius <robin.cornelius@gmail.com>  Mon, 28 Apr 2008 18:25:28 +0100
+
+xmlrpc-epi (0.54-1) unstable; urgency=low
+
+  * New upstream release
+    - Remove expat from source tree, now requires a shared libexpat installed
+    - Remove GPL'd cvs helper script from tarball
+    - Remove the libxml2 compatability layer and all php licenced code
+  * Packaging changes
+    - Change configure invocation in debian/rules to not use --host
+    - Update debian/copyright to reflect upstream tarball changes
+    - Add -dbg package
+    - Don't close ITP in multiple positions in changelog
+
+ -- Robin Cornelius <robin.cornelius@gmail.com>  Thu, 24 Apr 2008 15:25:09 +0100
+
+xmlrpc-epi (0.53-1) unstable; urgency=low
+
+  * New upstream release
+    - Upstream has been updated, drop all patches we were applying
+    - Use libxml2 as xmlparser on configure option
+
+ -- Robin Cornelius <robin.cornelius@gmail.com>  Wed, 02 Apr 2008 13:52:05 +0000
+
+xmlrpc-epi (0.51-1) unstable; urgency=low
+
+  * Initial release (Closes: #413986 - ITP: xmlrpc-epi -- XML-RPC request
+    serialisation/deserialisation library)
+    - Modified to use system expat rather than included (OLD) expat version
+    - Libtoolized and autoreconfd
+    - Install headers to /usr/include/xmlrpc-epi/ to avoid conflicting with
+      libxmlrpc-c3-dev
+    - Sync up to libxmlrpc from PHP5's xmlrpc extension
+    - Fix various compilation warnings
+
+ -- Paul Hampson <Paul.Hampson@Pobox.com>  Sun, 18 Mar 2007 16:09:09 +1100
+
