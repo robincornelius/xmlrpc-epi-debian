@@ -1,3 +1,12 @@
+New in version 0.54.2
+    * Fix datetime timezone offset code
+
+New in version 0.54.1
+  * Changed the expat autotools options again, the method being used was messy
+    now it uses a standard AC_CHECK_LIB and AC_CHECK_HEADER to find hthe lib
+    if the lib is in a non standard location then this can be set by passing 
+    approprate LDFLAGS and CFLAGS options to set -L and -I as approprate
+
 New in version 0.54
  * Applied Jeff Lawson's patches to fix bugs #629254,#621435
  * Removed libxml2 for the moment as the compatability headers are a licence

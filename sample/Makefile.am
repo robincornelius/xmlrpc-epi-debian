@@ -1,5 +1,5 @@
 
-INCLUDES=-I../src $(EXTRA_INCLUDES) 
+AM_CPPFLAGS=-I../src $(EXTRA_INCLUDES) 
 
 bin_PROGRAMS = sample client server server_compliance_test memtest hello_client hello_server
 

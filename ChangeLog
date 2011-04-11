@@ -1,3 +1,12 @@
+2009-09-02  Robin Cornelius <robin.cornelius@gmail.com>
+    Import patch from hiroaki-kawai to fix datetime timezone offsets
+    Minor version 0.54.2
+
+2009-09-02  Robin Cornelius <robin.cornelius@gmail.com>
+    Autotools update and change method of finding and linux to libexpat
+    on linux builds. No code changes
+    Minor version 0.54.1
+
 2008-04-16  Robin Cornelius <robin.cornelius@gmail.com>
 	Use only shared libexpat
 	Applied Jeff Lawson's patches to fix bugs #629254,#621435
