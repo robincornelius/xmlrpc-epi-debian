@@ -1,8 +1,6 @@
 
 lib_LTLIBRARIES = libxmlrpc-epi.la
 
-libxmlrpc_epi_la_LIBADD=$(EXPAT_LIB_LOCATION)/libexpat.la
-
 libxmlrpc_epi_la_SOURCES = \
 	base64.c \
 	encodings.c \
@@ -15,7 +13,7 @@ libxmlrpc_epi_la_SOURCES = \
 	xmlrpc.c \
 	xmlrpc_introspection.c \
         system_methods.c
-        
+
 libxmlrpc_epi_la_LDFLAGS = -version-info 0:3:0
 libxmlrpc_epi_incdir=$(includedir)/xmlrpc-epi 
 include_HEADERS = \
@@ -28,8 +26,6 @@ include_HEADERS = \
 	xmlrpc.h \
 	xmlrpc_introspection.h
 	
-SHELL = /bin/sh
-
 ROBODOC=robodoc
 ROBOOPTS=C SORT 
 

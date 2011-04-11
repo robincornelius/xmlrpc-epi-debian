@@ -16,8 +16,7 @@ NEW! Shared libexpat support
 With the autotools update the default option to build against a shared
 libexpat has been added. The system will search /usr/include/ for expat/h
 and /usr/lib/ for libexpat.* if you have these files in another location
-please specifcy on the configure command line
-./configure --with-expat=/location/to/expat
+please override LDFLAGS and CFLAGS with -L and -I options as approprate
 
 If your distro does not come with a libexpat, please get the latest 
 version from http://expat.sourceforge.net

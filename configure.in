@@ -1,9 +1,10 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(src/xmlrpc.h)
-AM_INIT_AUTOMAKE(xmlrpc, 0.54)
+AC_INIT
+AC_CONFIG_SRCDIR([src/xmlrpc.h])
+AM_INIT_AUTOMAKE(xmlrpc, 0.54.2)
 
-AM_PROG_LIBTOOL
+LT_INIT
 
 dnl Checks for programs.
 AC_PROG_AWK
@@ -13,26 +14,28 @@ AC_PROG_CXX
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-AC_PROG_LIBTOOL
+LT_INIT
 
-dnl we default to expecting libexpat in /usr/lib/libexpat.so and 
-dnl /usr/include/expat.h if  this is not the case override with 
-dnl command line configure option --with-expat=
+AC_CONFIG_MACRO_DIR([m4])
 
-AC_ARG_WITH([expat],[  --with-expat=[location]     Specificy location of libexpat],[
-if test "x$withval" = "xyes"; then
-	withval="/usr"
+dnl On Solaris, 64-bit libraries live in /path/lib/64 by default and for some
+dnl reason unknown to me Sun's cc/ld don't know how to automatically find them
+dnl even knowing we're building 64-bit.
+dnl
+dnl This should also work for gcc, but I'll have to double-check.
+
+LIBDIR="lib"
+if test "x$(uname -s)" = "xSunOS"; then
+	echo "${CC} ${CFLAGS}" | grep "m64" > /dev/null 2>&1
+	RETVAL=${?}
+
+	if test ${RETVAL} -eq 0; then
+		LIBDIR="lib/64"
+	fi
 fi
-],
-[withval="/usr"])
 
-EXPAT_LIB_LOCATION=$withval/lib
-EXPAT_HEADER_LOCATION=$withval/include
-
-AC_SUBST(EXPAT_LIB_LOCATION)
-AC_SUBST(EXPAT_HEADER_LOCATION)
-
-AC_CHECK_HEADERS([${EXPAT_HEADER_LOCATION}/expat.h], [], [AC_MSG_ERROR([Sorry ${EXPAT_HEADER_LOCATION}/expat.h not found, is libexpat and libexpat-dev installed?])],[])
+AC_CHECK_HEADERS([expat.h], [], [AC_MSG_ERROR([Sorry expat.h not found, is libexpat and libexpat-dev installed?])],[])
+AC_CHECK_LIB(expat, XML_ParserCreate, [], [ AC_MSG_ERROR([libexpat.so not found])])
 
 dnl Checks for header files.
 AC_HEADER_STDC
@@ -48,11 +51,11 @@ AC_STRUCT_TM
 dnl Checks for library functions.
 AC_FUNC_MEMCMP
 AC_FUNC_MMAP
-AC_FUNC_SETVBUF_REVERSED
 AC_FUNC_STRFTIME
 
 AC_CHECK_FUNCS(mktime strstr)
 
-AC_OUTPUT()
-AC_OUTPUT(src/Makefile Makefile sample/Makefile)
+AC_OUTPUT
+AC_CONFIG_FILES([src/Makefile Makefile sample/Makefile])
+AC_OUTPUT
 

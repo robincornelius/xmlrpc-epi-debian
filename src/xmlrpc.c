@@ -32,7 +32,7 @@
 
 
 static const char rcsid[] =
-"#(@) $Id: xmlrpc.c,v 1.36 2008/04/16 13:04:35 robincornelius Exp $";
+"#(@) $Id: xmlrpc.c,v 1.37 2009/09/02 20:49:06 robincornelius Exp $";
 
 
 /****h* ABOUT/xmlrpc
@@ -44,6 +44,9 @@ static const char rcsid[] =
  *   9/1999 - 10/2000
  * HISTORY
  *   $Log: xmlrpc.c,v $
+ *   Revision 1.37  2009/09/02 20:49:06  robincornelius
+ *   Fix timezone offset in datetime formatting
+ *
  *   Revision 1.36  2008/04/16 13:04:35  robincornelius
  *   dam visual studio warnings
  *
@@ -195,7 +198,7 @@ static int date_from_ISO8601 (const char *text, time_t * value) {
    struct tm tm;
    int n;
    int i;
-    char buf[30];
+   char buf[30];
 
     if (strchr (text, '-')) {
         char *p = (char *) text, *p2 = buf;
@@ -260,6 +263,22 @@ static int date_from_ISO8601 (const char *text, time_t * value) {
 
    *value = mkgmtime(&tm);
 
+   int offset = 0;
+   int tick = 0;
+   for(i = 0; i < 5; i++){
+      if(text[i+18]==':') continue;
+      if(tick==0) offset += (text[i+18]-'0')*36000;
+      if(tick==1) offset += (text[i+18]-'0')*3600;
+      if(tick==2) offset += (text[i+18]-'0')*600;
+      if(tick==3) offset += (text[i+18]-'0')*60;
+      tick++;
+   }
+   if(text[i+17]=='+'){
+      *value -= offset;
+   }else if(text[i+17]=='-'){
+      *value += offset;
+   }
+   
    return 0;
 
 }
