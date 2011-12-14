@@ -1,8 +1,10 @@
 xmlrpc-epi (0.54.2-1) unstable; urgency=low
 
   * New upstream release (Closes:#620437)
+  * libtool archives removed (Closes:#633255)
+  * Multiarch support added
 
- -- Robin Cornelius <robin.cornelius@gmail.com>  Mon, 11 Apr 2011 08:59:08 +0000
+ -- Robin Cornelius <robin.cornelius@gmail.com>  Mon, 14 Dec 2011 13:24:34 +0000
 
 xmlrpc-epi (0.54-3) unstable; urgency=low
 
