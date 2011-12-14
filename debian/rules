@@ -7,6 +7,8 @@
 # This special exception was added by Craig Small in version 0.37 of dh-make.
 
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+DEB_CONFIGURE_EXTRA_FLAGS += --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 
 CFLAGS = -Wall -g
 
@@ -18,7 +20,9 @@ endif
 
 config.status:
 	dh_testdir
-	./configure --build=$(DEB_BUILD_GNU_TYPE) --includedir=/usr/include/xmlrpc-epi --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs"
+	./configure --build=$(DEB_BUILD_GNU_TYPE) --includedir=/usr/include/xmlrpc-epi \
+		--prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info \
+		CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs" $(DEB_CONFIGURE_EXTRA_FLAGS)
 
 build: build-arch build-indep
 build-arch: build-stamp
@@ -37,7 +41,7 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_prep
 	dh_installdirs
 
 	# Install the package into debian/tmp
