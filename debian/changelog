@@ -1,3 +1,9 @@
+xmlrpc-epi (0.54.2-2) UNRELEASED; urgency=medium
+
+  * Transition to automatic debug package (from: libxmlrpc-epi0-dbg).
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Tue, 09 Oct 2018 02:14:41 +0100
+
 xmlrpc-epi (0.54.2-1) unstable; urgency=low
 
   * New upstream release (Closes:#620437)

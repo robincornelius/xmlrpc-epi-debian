@@ -61,7 +61,7 @@ binary-arch: build install
 	dh_install --sourcedir=debian/tmp
 	dh_installman
 	dh_link
-	dh_strip --dbg-package=libxmlrpc-epi0-dbg
+	dh_strip --dbgsym-migration='libxmlrpc-epi0-dbg (<= 0.54.2-1)'
 	dh_compress
 	dh_fixperms
 	dh_makeshlibs
