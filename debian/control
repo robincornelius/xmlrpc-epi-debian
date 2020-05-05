@@ -1,5 +1,5 @@
 Source: xmlrpc-epi
-Priority: extra
+Priority: optional
 Maintainer: Robin Cornelius <robin.cornelius@gmail.com>
 Uploaders: Paul TBBle Hampson <paul.hampson@pobox.com>
 Homepage: http://xmlrpc-epi.sourceforge.net/
