@@ -1,6 +1,10 @@
 xmlrpc-epi (0.54.2-2) UNRELEASED; urgency=medium
 
+  [ Jelmer Vernooĳ ]
   * Transition to automatic debug package (from: libxmlrpc-epi0-dbg).
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
 
  -- Jelmer Vernooĳ <jelmer@debian.org>  Tue, 09 Oct 2018 02:14:41 +0100
 
@@ -58,4 +62,3 @@ xmlrpc-epi (0.51-1) unstable; urgency=low
     - Fix various compilation warnings
 
  -- Paul Hampson <Paul.Hampson@Pobox.com>  Sun, 18 Mar 2007 16:09:09 +1100
-
