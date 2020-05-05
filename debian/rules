@@ -6,8 +6,7 @@
 # dh-make output file, you may use that output file without restriction.
 # This special exception was added by Craig Small in version 0.37 of dh-make.
 
-DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
-DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+include /usr/share/dpkg/architecture.mk
 DEB_CONFIGURE_EXTRA_FLAGS += --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 
 CFLAGS = -Wall -g
