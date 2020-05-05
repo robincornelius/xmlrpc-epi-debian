@@ -6,8 +6,8 @@ Homepage: http://xmlrpc-epi.sourceforge.net/
 Build-Depends: debhelper (>= 10~), autotools-dev, libexpat1-dev, pkg-config
 Standards-Version: 3.9.2
 Section: libs
-Vcs-GIT: https://github.com/robincornelius/xmlrpc-epi-debian.git
 Vcs-Browser: https://github.com/robincornelius/xmlrpc-epi-debian
+Vcs-Git: https://github.com/robincornelius/xmlrpc-epi-debian.git
 
 Package: libxmlrpc-epi-dev
 Section: libdevel
