@@ -12,6 +12,8 @@ xmlrpc-epi (0.54.2-2) UNRELEASED; urgency=medium
   * Changed vcs type from GIT to Git based on URL.
   * Fix day-of-week for changelog entry 0.54.2-1.
   * Drop transition for old debug package migration.
+  * Remove field Section on binary package libxmlrpc-epi0 that duplicates
+    source.
 
  -- Jelmer Vernooĳ <jelmer@debian.org>  Tue, 09 Oct 2018 02:14:41 +0100
 
