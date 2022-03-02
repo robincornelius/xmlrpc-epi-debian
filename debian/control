@@ -1,13 +1,13 @@
 Source: xmlrpc-epi
-Priority: extra
+Priority: optional
 Maintainer: Robin Cornelius <robin.cornelius@gmail.com>
 Uploaders: Paul TBBle Hampson <paul.hampson@pobox.com>
 Homepage: http://xmlrpc-epi.sourceforge.net/
-Build-Depends: debhelper (>= 9.20160114), autotools-dev, libexpat1-dev, pkg-config
+Build-Depends: debhelper (>= 10~), autotools-dev, libexpat1-dev, pkg-config
 Standards-Version: 3.9.2
 Section: libs
-Vcs-GIT: git://github.com/robincornelius/xmlrpc-epi-debian.git
 Vcs-Browser: https://github.com/robincornelius/xmlrpc-epi-debian
+Vcs-Git: https://github.com/robincornelius/xmlrpc-epi-debian.git
 
 Package: libxmlrpc-epi-dev
 Section: libdevel
@@ -22,7 +22,6 @@ Description: Development files for libxmlrpc-epi0, a XML-RPC request library
  the development files for applications wishing to use libxmlrpc-epi.
 
 Package: libxmlrpc-epi0
-Section: libs
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
